@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E36b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -113,11 +114,118 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="foi-oD-wdE">
+                            <connections>
+                                <segue destination="PB5-bB-TSN" kind="presentation" identifier="ToAddView" id="Tyt-wC-F64"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709" y="-630"/>
+        </scene>
+        <!--Add Feed View Controller-->
+        <scene sceneID="SLR-8e-nvo">
+            <objects>
+                <viewController modalPresentationStyle="formSheet" id="PB5-bB-TSN" customClass="AddFeedViewController" customModule="DHRSS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rlg-gF-uVn"/>
+                        <viewControllerLayoutGuide type="bottom" id="IF7-rx-yCv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="14h-dv-5gR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add RSS Feed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31V-R6-iov">
+                                <rect key="frame" x="16" y="20" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aK4-4I-wsR">
+                                <rect key="frame" x="16" y="49" width="568" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Poa-K3-yvQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bIh-rk-6Dk">
+                                <rect key="frame" x="16" y="78" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="go"/>
+                                <connections>
+                                    <outlet property="delegate" destination="PB5-bB-TSN" id="12n-eM-w13"/>
+                                </connections>
+                            </textField>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U08-6Z-RRt">
+                                <rect key="frame" x="226" y="116" width="148" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5M-QV-wiX">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="vb4-EH-wgS"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelAction:" destination="PB5-bB-TSN" eventType="touchUpInside" id="Vfd-fm-Nt4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXH-x0-uXG">
+                                        <rect key="frame" x="78" y="0.0" width="70" height="30"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="An4-1V-A8o"/>
+                                        </constraints>
+                                        <state key="normal" title="Add">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addAction:" destination="PB5-bB-TSN" eventType="touchUpInside" id="2rK-r4-LZL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="F5M-QV-wiX" secondAttribute="bottom" id="WqH-yH-nqQ"/>
+                                    <constraint firstItem="IXH-x0-uXG" firstAttribute="leading" secondItem="F5M-QV-wiX" secondAttribute="trailing" constant="8" symbolic="YES" id="mSn-gj-I8y"/>
+                                    <constraint firstItem="F5M-QV-wiX" firstAttribute="baseline" secondItem="IXH-x0-uXG" secondAttribute="baseline" id="nDo-fQ-qqy"/>
+                                    <constraint firstAttribute="width" constant="148" id="qpw-PY-oh9"/>
+                                    <constraint firstItem="F5M-QV-wiX" firstAttribute="top" secondItem="U08-6Z-RRt" secondAttribute="top" id="sBe-Zm-swv"/>
+                                    <constraint firstItem="F5M-QV-wiX" firstAttribute="leading" secondItem="U08-6Z-RRt" secondAttribute="leading" id="uPo-gv-6ch"/>
+                                    <constraint firstAttribute="height" constant="30" id="wZv-CI-v2F"/>
+                                    <constraint firstAttribute="trailing" secondItem="IXH-x0-uXG" secondAttribute="trailing" id="ztR-7M-fzl"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bIh-rk-6Dk" firstAttribute="leading" secondItem="14h-dv-5gR" secondAttribute="leadingMargin" id="GH4-mv-c24"/>
+                            <constraint firstItem="bIh-rk-6Dk" firstAttribute="top" secondItem="aK4-4I-wsR" secondAttribute="bottom" constant="8" id="Lon-L0-62L"/>
+                            <constraint firstItem="bIh-rk-6Dk" firstAttribute="trailing" secondItem="14h-dv-5gR" secondAttribute="trailingMargin" id="OPE-Sc-BNK"/>
+                            <constraint firstItem="aK4-4I-wsR" firstAttribute="leading" secondItem="14h-dv-5gR" secondAttribute="leadingMargin" id="axG-nW-K7j"/>
+                            <constraint firstItem="31V-R6-iov" firstAttribute="top" secondItem="rlg-gF-uVn" secondAttribute="bottom" id="fBb-AW-TZv"/>
+                            <constraint firstItem="31V-R6-iov" firstAttribute="leading" secondItem="14h-dv-5gR" secondAttribute="leadingMargin" id="fk2-SE-ccY"/>
+                            <constraint firstAttribute="centerX" secondItem="U08-6Z-RRt" secondAttribute="centerX" id="fkN-kY-WrB"/>
+                            <constraint firstItem="aK4-4I-wsR" firstAttribute="trailing" secondItem="14h-dv-5gR" secondAttribute="trailingMargin" id="jGn-GL-g3w"/>
+                            <constraint firstItem="aK4-4I-wsR" firstAttribute="top" secondItem="31V-R6-iov" secondAttribute="bottom" constant="8" id="k1A-uJ-jJO"/>
+                            <constraint firstItem="31V-R6-iov" firstAttribute="trailing" secondItem="14h-dv-5gR" secondAttribute="trailingMargin" id="mHL-Pp-0s7"/>
+                            <constraint firstItem="U08-6Z-RRt" firstAttribute="top" secondItem="bIh-rk-6Dk" secondAttribute="bottom" constant="8" id="o7t-s5-Bxb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="statusLabel" destination="aK4-4I-wsR" id="bJV-C6-GaG"/>
+                        <outlet property="urlTextField" destination="bIh-rk-6Dk" id="A0g-cF-FWj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LWx-24-p3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1442" y="-1342"/>
         </scene>
         <!--Items View Controller-->
         <scene sceneID="3uu-Z9-0db">
