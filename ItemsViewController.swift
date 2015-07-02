@@ -32,6 +32,25 @@ class ItemsViewController: UITableViewController {
         loadFeed()
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "DetailSegue" {
+            let detailViewController = segue.destinationViewController.topViewController as! DetailViewController
+            let path = self.tableView.indexPathForSelectedRow()
+            let itemRec = rssdb.getItemRow(itemRowIDs![path!.row] as! NSNumber) as NSDictionary
+            detailViewController.detailItem = (itemRec[kRSSDB.itemURL] as! String)
+            detailViewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+            detailViewController.navigationItem.leftItemsSupplementBackButton = true
+            detailViewController.primaryVC = self.parentViewController
+            
+            // set display mode for iPad
+            if self.splitViewController?.displayMode == UISplitViewControllerDisplayMode.PrimaryOverlay {
+                let svc = self.splitViewController
+                svc?.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryHidden
+            }
+        }
+    }
+
+    
     // MARK: Table view
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
