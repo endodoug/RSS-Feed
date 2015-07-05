@@ -30,6 +30,11 @@ class ItemsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadFeed()
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.tintColor = RSSDefaultTint
+        self.refreshControl?.backgroundColor = UIColor(white: 0.75, alpha: 0.25)
+        self.refreshControl?.addTarget(self, action: "doRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -91,6 +96,13 @@ class ItemsViewController: UITableViewController {
         
         cell.layoutIfNeeded()
         return cell
+    }
+    
+    // MARK: UIRefreshControl
+    
+    func doRefresh(sender: UIRefreshControl) {
+        loadFeed()
+        sender.endRefreshing()
     }
     
     // MARK: Support functions
