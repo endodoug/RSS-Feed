@@ -125,12 +125,13 @@ class DetailViewController: UIViewController, WKNavigationDelegate, WKUIDelegate
         titleLabel.font = UIFont.boldSystemFontOfSize(UIFont.labelFontSize())
         titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth
         titleLabel.textAlignment = NSTextAlignment.Left
+        titleLabel.textColor = UIColor.whiteColor()
         titleLabel.text = ""
         
         subtitleLabel.frame = subTitleLabelFrame
         subtitleLabel.font = UIFont.systemFontOfSize(UIFont.smallSystemFontSize() * 0.8)
         subtitleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth
-        subtitleLabel.textColor = UIColor.grayColor()
+        subtitleLabel.textColor = UIColor.whiteColor()
         subtitleLabel.textAlignment = NSTextAlignment.Left
         subtitleLabel.text = detailItem
         
