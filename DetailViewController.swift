@@ -143,10 +143,11 @@ class DetailViewController: UIViewController, WKNavigationDelegate, WKUIDelegate
     func setupToolBar() {
         // setup bar button items
         if buttonItems.count == 0 {
-            leftButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self.webView, action: "goBack")
-            rightButton = UIBarButtonItem(title: "Forward", style: UIBarButtonItemStyle.Plain, target: self.webView, action: "goForward")
-            reloadButton = UIBarButtonItem(title: "Reload", style: UIBarButtonItemStyle.Plain, target: self.webView, action: "reload")
-            stopButton = UIBarButtonItem(title: "Stop", style: UIBarButtonItemStyle.Plain, target: self.webView, action: "stopLoading")
+            leftButton = UIBarButtonItem(image: UIImage(named: "backIcon"), style: UIBarButtonItemStyle.Plain, target: self.webView, action: "goBack")
+            rightButton = UIBarButtonItem(image: UIImage(named: "fwdIcon"), style: UIBarButtonItemStyle.Plain, target: self.webView, action: "goForward")
+            reloadButton = UIBarButtonItem(image: UIImage(named: "reloadIcon"), style: UIBarButtonItemStyle.Plain, target: self.webView, action: "reload")
+            stopButton = UIBarButtonItem(image: UIImage(named: "stopIcon"), style: UIBarButtonItemStyle.Plain, target: self.webView, action: "stopLoading")
+            shareButton = UIBarButtonItem(image: UIImage(named: "shareIcon"), style: UIBarButtonItemStyle.Plain, target: self, action: "shareAction")
             
             fixedSpaceButton.width = 35.0
             
@@ -155,6 +156,8 @@ class DetailViewController: UIViewController, WKNavigationDelegate, WKUIDelegate
             buttonItems.append(rightButton!)
             buttonItems.append(flexSpaceButton)
             buttonItems.append(reloadButton!)
+            buttonItems.append(fixedSpaceButton)
+            buttonItems.append(shareButton!)
         }
         
         // must set navigation toolbar items through the view controller
@@ -181,6 +184,16 @@ class DetailViewController: UIViewController, WKNavigationDelegate, WKUIDelegate
     }
     
     // MARK: tool bar utilities
+    
+    func shareAction() {
+        if let shareURL = webView?.URL {
+            let activityItems = [shareURL]
+            let applicationActivities = [SafariActivity(), ChromeActivity()]
+            var aVC = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+            aVC.popoverPresentationController?.barButtonItem = shareButton
+            self.presentViewController(aVC, animated: true, completion: nil)
+        }
+    }
     
     func toolBarsOn(nav: UINavigationController) {
         nav.setToolbarHidden(false, animated: true)

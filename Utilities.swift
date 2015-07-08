@@ -8,7 +8,7 @@
 
 import UIKit
 
-let RSSDefaultTint = UIColor(red: 246/255.0, green: 166.0/255.0, blue: 34.0/255.0, alpha: 0.8)
+let RSSDefaultTint = UIColor(red: 49/255.0, green: 161.0/255.0, blue: 231.0/255.0, alpha: 1.0)
 
 #if DEBUG
     let _RSSdebug = true

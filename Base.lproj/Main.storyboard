@@ -106,7 +106,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="foi-oD-wdE">
-                            <color key="tintColor" red="0.96470588239999999" green="0.65098039220000004" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.19215686269999999" green="0.63137254899999995" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
                                 <segue destination="PB5-bB-TSN" kind="presentation" identifier="ToAddView" id="Tyt-wC-F64"/>
                             </connections>

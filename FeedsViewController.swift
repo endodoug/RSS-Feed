@@ -16,9 +16,10 @@ class FeedsViewController: UITableViewController, RSSAddViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Doug's RSS"
+        //self.title = ""
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        editButtonItem().tintColor = UIColor(red: 246/255.0, green: 166.0/255.0, blue: 34.0/255.0, alpha: 0.8)
+        self.navigationController?.navigationBar.tintColor = RSSDefaultTint
+        //editButtonItem().tintColor = UIColor(red: 246/255.0, green: 166.0/255.0, blue: 34.0/255.0, alpha: 0.8)
     }
     
     // MARK: - Table View
