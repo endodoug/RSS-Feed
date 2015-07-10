@@ -14,12 +14,15 @@ class FeedsViewController: UITableViewController, RSSAddViewControllerDelegate {
     var feedIDs: Array<Int>!
     var newFeed: [String : AnyObject]?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        var logoImage: UIImage = UIImage(named: "RSSTitle")!
+        self.navigationItem.titleView = UIImageView(image: logoImage)
+        
         //self.title = ""
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         self.navigationController?.navigationBar.tintColor = RSSDefaultTint
-        //editButtonItem().tintColor = UIColor(red: 246/255.0, green: 166.0/255.0, blue: 34.0/255.0, alpha: 0.8)
     }
     
     // MARK: - Table View
@@ -67,6 +70,9 @@ class FeedsViewController: UITableViewController, RSSAddViewControllerDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ItemsSegue" {
+            
+            let backItem = UIBarButtonItem(title: "", style: .Done, target: nil, action: nil)
+            navigationItem.backBarButtonItem = backItem
             let rssItemsViewController = segue.destinationViewController as! ItemsViewController
             let path = tableView.indexPathForSelectedRow()!
             rssItemsViewController.feedID = feedIDs[path.row]

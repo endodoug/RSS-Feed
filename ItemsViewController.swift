@@ -29,6 +29,7 @@ class ItemsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loadFeed()
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.tintColor = RSSDefaultTint
@@ -44,6 +45,8 @@ class ItemsViewController: UITableViewController {
             let itemRec = rssdb.getItemRow(itemRowIDs![path!.row] as! NSNumber) as NSDictionary
             detailViewController.detailItem = (itemRec[kRSSDB.itemURL] as! String)
             detailViewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+            let backItem = UIBarButtonItem(title: "", style: .Done, target: nil, action: nil)
+            navigationItem.backBarButtonItem = backItem
             detailViewController.navigationItem.leftItemsSupplementBackButton = true
             detailViewController.primaryVC = self.parentViewController
             
