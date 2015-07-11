@@ -9,6 +9,7 @@ class SplitViewController : UISplitViewController, UISplitViewControllerDelegate
         super.viewDidLoad()
         self.delegate = self
         setStatusBarHidden(false)
+
     }
     
     override func supportedInterfaceOrientations() -> Int {
@@ -41,7 +42,9 @@ class SplitViewController : UISplitViewController, UISplitViewControllerDelegate
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         // must set identifier in "Storyboard ID" field in the storyboard
         let detailView = storyboard.instantiateViewControllerWithIdentifier("detailView") as! UINavigationController
+        
         return detailView
+        
     }
     
 }

@@ -52,6 +52,8 @@ class ItemsViewController: UITableViewController {
             
             // set display mode for iPad
             if self.splitViewController?.displayMode == UISplitViewControllerDisplayMode.PrimaryOverlay {
+                let backItem = UIBarButtonItem(title: "", style: .Done, target: nil, action: nil)
+                navigationItem.backBarButtonItem = backItem
                 let svc = self.splitViewController
                 svc?.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryHidden
             }

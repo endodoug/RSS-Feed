@@ -28,9 +28,9 @@ static NSString * const kCreateItem = @"CREATE TABLE item ( id INTEGER PRIMARY K
 static NSString * const kCreateFeedgroup = @"CREATE TABLE feedgroup ( id INTEGER PRIMARY KEY, title TEXT, stamp TEXT );";
 static NSString * const kInsertFeedgroup = @"INSERT INTO feedgroup (title, stamp) VALUES ( 'main', DATETIME('now') );";
 static NSString * const kAddColumnGroupId = @"ALTER TABLE feed ADD COLUMN group_id INTEGER;";
-static NSString * const kInsertLynda = @"INSERT INTO feed (url, title, desc, group_id) VALUES ( 'http://feeds.feedburner.com/lyndablog', 'lynda.blog', 'the blog of lynda.com', 1 );";
-static NSString * const kInsertLynda2 = @"INSERT INTO feed (url, title, desc, group_id) VALUES ( 'http://feeds.feedburner.com/lyndacom-new-releases', 'lynda.com New Releases', 'lynda.com New Releases', 1 );";
-static NSString * const kInsertBW = @"INSERT INTO feed (url, title, desc, group_id) VALUES ( 'https://billweinman.wordpress.com/feed/', 'Bill Weinman''s Technology Blog', 'because it''s all about the data', 1 );";
+static NSString * const kInsertLynda = @"INSERT INTO feed (url, title, desc, group_id) VALUES ( 'http://doug-harper.com/feed/', 'Doug-Harper.com', 'My blog.', 1 );";
+static NSString * const kInsertLynda2 = @"INSERT INTO feed (url, title, desc, group_id) VALUES ( 'http://feeds.feedburner.com/News-IosDevelopers', 'iOS Developers', 'News - iOS Developers', 1 );";
+static NSString * const kInsertBW = @"INSERT INTO feed (url, title, desc, group_id) VALUES ( 'https://www.chartboost.com/feed/', 'Chartboost Blog', 'Learn the business of mobile gaming', 1 );";
 static NSString * const kIndexFeedUrl = @"CREATE UNIQUE INDEX IF NOT EXISTS feedUrl ON feed(url);";
 
 @interface RSSDB : BWCRUD

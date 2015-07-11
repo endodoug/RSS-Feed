@@ -46,7 +46,7 @@ class DetailViewController: UIViewController, WKNavigationDelegate, WKUIDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+        //self.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
         self.navigationController?.toolbar.tintColor = RSSDefaultTint
         self.navigationController?.navigationBar.tintColor = RSSDefaultTint
         self.configureView()
@@ -138,6 +138,7 @@ class DetailViewController: UIViewController, WKNavigationDelegate, WKUIDelegate
         titleSubTitleView.addSubview(titleLabel)
         titleSubTitleView.addSubview(subtitleLabel)
         self.navigationItem.titleView = titleSubTitleView
+        
     }
     
     func setupToolBar() {
