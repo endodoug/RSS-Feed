@@ -17,7 +17,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="ZBK-zy-BEB">
-                    <rect key="frame" x="84" y="63" width="313" height="354"/>
+                    <rect key="frame" x="110" y="94" width="260" height="292"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="0.14117647059999999" green="0.1843137255" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -25,8 +25,8 @@
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstAttribute="centerY" secondItem="ZBK-zy-BEB" secondAttribute="centerY" id="mnC-FZ-7cq"/>
-                <constraint firstAttribute="centerX" secondItem="ZBK-zy-BEB" secondAttribute="centerX" id="tK6-0x-qKs"/>
+                <constraint firstAttribute="centerY" secondItem="ZBK-zy-BEB" secondAttribute="centerY" id="n44-7s-rUZ"/>
+                <constraint firstAttribute="centerX" secondItem="ZBK-zy-BEB" secondAttribute="centerX" id="nZy-ne-uX4"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -34,6 +34,6 @@
         </view>
     </objects>
     <resources>
-        <image name="launchImage" width="313" height="354"/>
+        <image name="launchImage" width="260" height="292"/>
     </resources>
 </document>

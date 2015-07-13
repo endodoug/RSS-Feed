@@ -48,6 +48,7 @@ class DetailViewController: UIViewController, WKNavigationDelegate, WKUIDelegate
         
         //self.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
         self.navigationController?.toolbar.tintColor = RSSDefaultTint
+        self.navigationController?.toolbar.backgroundColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.tintColor = RSSDefaultTint
         self.configureView()
     }
